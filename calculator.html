@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CALCI</title>
+        <link rel="stylesheet" type="text/css" href="calci.css">
+
+    </head>
+    <script>
+        var temp;
+        var opt2="";
+        var opt3="";
+        var result=0;
+        var finalres=0;
+        function dis(value)
+        {
+           
+            var a=document.getElementById("edu").value+=value;
+            temp=parseInt(a,10);
+          
+            
+           
+        }
+        function clr()
+        {
+            document.getElementById("edu").value="";
+        }
+        function opt(op)
+        {
+            
+            if(opt2=="")
+            {
+                if(finalres==0)
+                {
+            result=temp;
+            temp=0;
+            opt3=op;
+            
+            document.getElementById("edu").value="";
+
+            
+            console.log("Result"+result);
+            }
+            else
+            {
+                result=finalres;
+            }
+            }
+            
+            else 
+            {
+                console.log("Rsult"+result);
+                if(opt3=="+")
+                {
+                finalres=result+temp;
+                }
+                if(opt3=="*")
+                {
+                finalres=result*temp;
+                }
+                if(opt3=="/")
+                {
+                finalres=result/temp;
+                }
+                if(opt3=="-")
+                {
+                finalres=result-temp;
+                }
+                console.log("value of temp"+temp);
+                console.log("value of final"+finalres);
+                document.getElementById("edu").value="";
+
+            }
+            opt2=opt2+op;
+            console.log(opt2);
+            opt3=op;
+            console.log("value of opt3"+opt3);
+           
+            if(opt3=="=")
+                {
+                    document.getElementById("edu").value=finalres;
+                }
+
+            if(opt2=="*+" || opt2=="*-" || opt2=="*/" || opt2=="**")
+            {
+                document.getElementById("edu").value=finalres;
+               opt2="";
+               
+                temp=0;
+                
+                
+            }
+            else if(opt2=="++" || opt2=="+-" || opt2=="+/" || opt2=="+*")
+            {
+                document.getElementById("edu").value=finalres;
+              opt2="";  
+                
+            }
+            else if(opt2=="/+" || opt2=="/-" || opt2=="//" || opt2=="/*")
+            {
+                document.getElementById("edu").value=finalres;
+                opt2="";
+               
+            }
+
+            else if(opt2=="-+" || opt2=="--" || opt2=="-/" || opt2=="-*")
+            {
+                document.getElementById("edu").value=finalres;
+                opt2="";
+               
+            }
+          
+
+            if(opt2!="")
+                {
+                    clr();
+                }
+              
+           
+           
+
+         
+
+        }
+            
+           
+            
+
+
+        
+
+       
+           
+             
+
+          
+
+    </script>
+    <body>
+        <body>
+            <div class = title >
+                <h1>Calculator</h1>
+            <table border="1">
+            <tr>
+            <td colspan="3"><input type="text" id="edu"/></td>
+            <td><input type="button" value="c" onclick="clr()"/> </td>
+            
+            </tr>
+            <tr>
+            <td><input type="button" value="1" onclick="dis('1')"/> </td>
+            <td><input type="button" value="2" onclick="dis('2')"/> </td>
+            <td><input type="button" value="3" onclick="dis('3')"/> </td>
+            <td><input type="button" value="+" onclick="opt('+')"/> </td>
+            
+            </tr>
+            <tr>
+            <td><input type="button" value="4" onclick="dis('4')"/> </td>
+            <td><input type="button" value="5" onclick="dis('5')"/> </td>
+            <td><input type="button" value="6" onclick="dis('6')"/> </td>
+            <td><input type="button" value="-" onclick="opt('-')"/> </td>
+            
+            </tr>
+            <tr>
+            <td><input type="button" value="7" onclick="dis('7')"/> </td>
+            <td><input type="button" value="8" onclick="dis('8')"/> </td>
+            <td><input type="button" value="9" onclick="dis('9')"/> </td>
+            <td><input type="button" value="*" onclick="opt('*')"/> </td>
+            
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="dis('0')"/> </td>
+            
+            <td><input type="button" value="/" onclick="opt('/')"/> </td>
+            <td><input type="button" value="." onclick="opt('.')"/> </td>
+            <td><input type="button" value="=" onclick="opt('=')"/> </td> 
+            </tr>
+            </table>
+            </div>
+            </body>
+    </body>
+</html>
